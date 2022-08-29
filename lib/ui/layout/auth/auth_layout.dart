@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/ui/layout/auth/widget/custom_title_auth.dart';
+import 'package:flutter_login_ui/ui/layout/auth/widget/fade_animation.dart';
 import 'package:flutter_login_ui/ui/layout/auth/widget/panel_left_auth.dart';
+import 'package:flutter_login_ui/widgets/constants.dart';
+import 'package:simple_animations/animation_builder/loop_animation_builder.dart';
 
 class AuthLayout extends StatelessWidget {
   final Widget child;
@@ -15,7 +18,7 @@ class AuthLayout extends StatelessWidget {
       body: Stack(
         // isAlwaysShown: true,
         children: [
-          (size.width > 1000)
+          (size.width > 900)
               ? _DesktopBody(child: child)
               : _MobileBody(child: child),
 
@@ -36,22 +39,9 @@ class _MobileBody extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/images/login.png'), fit: BoxFit.cover),
-        ),
-        height: size.height,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            CustomTitleAuth(),
-            Container(
-              width: double.infinity,
-              height: 420,
-              child: child,
-            ),
-          ],
-        ),
+        width: double.infinity,
+        height: 590,
+        child: child,
       ),
     );
   }
@@ -69,7 +59,11 @@ class _DesktopBody extends StatelessWidget {
     return Container(
       width: size.width,
       height: size.height,
-      color: Colors.black,
+      decoration: BoxDecoration(
+          gradient: LinearGradient(colors: [
+        Color(0xFFF8FBFF),
+        Color(0xFFFCFDFD),
+      ])),
       child: Row(
         children: [
           // Twitter Background
@@ -77,21 +71,14 @@ class _DesktopBody extends StatelessWidget {
 
           // View Container
           Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('assets/images/login.png'),
-                  fit: BoxFit.cover),
+            height: size.height,
+            width: size.width / 3.2,
+            child: Container(
+              width: double.infinity,
+              height: 590,
+              child: child,
             ),
-            width: 600,
-            height: double.infinity,
-            child: Column(
-              children: [
-                SizedBox(height: 20),
-                CustomTitleAuth(),
-                Expanded(child: child),
-              ],
-            ),
-          )
+          ),
         ],
       ),
     );

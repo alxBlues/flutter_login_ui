@@ -1,16 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_login_ui/widgets/constants.dart';
 
-class CustomTitleAuth extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final double widthSize = MediaQuery.of(context).size.width;
-    final double heightSize = MediaQuery.of(context).size.height;
-    return Container(
-      padding: const EdgeInsets.only(left: 10, top: 0),
-      child: Image(image: AssetImage('assets/images/maat-login-form.png')),
-      height: heightSize * 0.25,
-      width: widthSize * 0.55,
+class CustomTitleAuth {
+  static Text loginTitleDecoration({
+    required String label,
+    required Color color,
+  }) {
+    return Text(
+      label,
+      style: TextStyle(
+          color: color,
+          fontSize: 40,
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Poppins'),
+    );
+  }
+
+  static Text ResetPasswordTitleDecoration({
+    required String label,
+  }) {
+    return Text(
+      label,
+      style: TextStyle(
+          color: strongColor,
+          fontSize: 16,
+          fontWeight: FontWeight.normal,
+          fontFamily: 'Poppins'),
     );
   }
 }

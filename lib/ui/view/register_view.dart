@@ -10,7 +10,7 @@ import 'package:flutter_login_ui/widgets/constants.dart';
 
 import 'package:provider/provider.dart';
 
-class LoginView extends StatelessWidget {
+class RegisterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final authProvider = Provider.of<AuthProvider>(context);
@@ -74,7 +74,7 @@ class LoginView extends StatelessWidget {
                                 1,
                                 Center(
                                   child: CustomTitleAuth.loginTitleDecoration(
-                                      label: 'Ingreso', color: strongColor),
+                                      label: 'Registro', color: strongColor),
                                 ),
                               )))
                     ],
@@ -135,6 +135,28 @@ class LoginView extends StatelessWidget {
                               ),
 
                               SizedBox(height: 20),
+                              TextFormField(
+                                onFieldSubmitted: (_) {
+                                  onFormSubmit(loginFormProvider, authProvider);
+                                },
+                                onChanged: (value) =>
+                                    loginFormProvider.password = value,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty)
+                                    return 'Confirmar Contraseña';
+                                  if (value.length < 6)
+                                    return 'La contraseña debe de ser de 6 caracteres';
+
+                                  return null; // Válido
+                                },
+                                obscureText: true,
+                                style: TextStyle(color: strongColor2),
+                                decoration: CustomInputs.loginInputDecoration(
+                                    hint: '*********',
+                                    label: 'Confirmar Contraseña',
+                                    icon: Icons.lock_outline_rounded),
+                              ),
+                              SizedBox(height: 20),
                               ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                       shape: RoundedRectangleBorder(
@@ -148,32 +170,18 @@ class LoginView extends StatelessWidget {
                                     onFormSubmit(
                                         loginFormProvider, authProvider);
                                   },
-                                  child: Text('INGRESAR',
+                                  child: Text('Registrarse',
                                       style: TextStyle(
                                           fontFamily: 'Poppins',
                                           color: Colors.white))),
                               SizedBox(height: 20),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  InkWell(
-                                    child: Text('Registrarse',
-                                        style: TextStyle(color: strongColor)),
-                                    onTap: () {
-                                      Navigator.pushNamed(
-                                          context, Routes.registerRoute);
-                                    },
-                                  ),
-                                  Text(' o '),
-                                  InkWell(
-                                    child: Text('Recuperar Contraseña',
-                                        style: TextStyle(color: strongColor)),
-                                    onTap: () {
-                                      Navigator.pushNamed(
-                                          context, Routes.passwordRequestRoute);
-                                    },
-                                  )
-                                ],
+                              InkWell(
+                                child: Text('Ingresar',
+                                    style: TextStyle(color: strongColor)),
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                      context, Routes.loginRoute);
+                                },
                               )
                             ],
                           )),

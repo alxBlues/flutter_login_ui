@@ -17,7 +17,7 @@ class CustomInputs {
       labelText: label,
       prefixIcon: Icon(icon, color: strongColor),
       labelStyle: TextStyle(color: strongColor),
-      hintStyle: TextStyle(color: smoothColor2),
+      hintStyle: TextStyle(color: hintColor),
       fillColor: Colors.grey.shade100,
     );
   }
@@ -37,7 +37,7 @@ class CustomInputs {
       labelText: label,
       prefixIcon: Icon(icon, color: Colors.white),
       labelStyle: TextStyle(color: Colors.white),
-      hintStyle: TextStyle(color: Colors.white),
+      hintStyle: TextStyle(color: hintColor),
       fillColor: Colors.grey.shade100,
     );
   }

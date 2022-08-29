@@ -36,6 +36,30 @@ class AuthProvider extends ChangeNotifier {
     });
   }
 
+  register(String email, String password, String name, String cpassword) {
+    final data = {
+      'name': name,
+      'email': email,
+      'password': password,
+      'password_confirmation': cpassword
+    };
+
+    BoscoApi.httpPost('/register', data).then((json) {
+      final authResponse = ResponseApi.fromMap(json);
+      user = authResponse.usuario;
+
+      authStatus = AuthStatus.authenticated;
+      LocalStorage.prefs.setString('token', authResponse.token);
+      NavigationService.replaceTo(Routes.dashboardRoute);
+
+      BoscoApi.configureDio();
+      notifyListeners();
+    }).catchError((e) {
+      print('error en: $e');
+      NotificationsService.showSnackbarError('Usuario / Password no válidos');
+    });
+  }
+
   Future<bool> isAuthenticated() async {
     final token = LocalStorage.prefs.getString('token');
     if (token == null) {

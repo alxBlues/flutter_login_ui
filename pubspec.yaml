@@ -40,6 +40,7 @@ dependencies:
   lottie: ^1.4.1
   provider: ^6.0.3
   shared_preferences: ^2.0.15
+  simple_animations: ^5.0.0+2
   url_strategy: ^0.2.0
 
 dev_dependencies:
@@ -75,7 +76,24 @@ flutter:
         - asset: assets/fonts/NimbusSans/NimbusSanL-reg.otf
     - family: Roboto
       fonts:
-        - asset: assets/fonts/Pacifico/Pacifico.ttf
+        - asset: assets/fonts/Roboto/Roboto-Black.ttf
+        - asset: assets/fonts/Roboto/Roboto-BlackItalic.ttf
+        - asset: assets/fonts/Roboto/Roboto-Bold.ttf
+        - asset: assets/fonts/Roboto/Roboto-BoldItalic.ttf
+        - asset: assets/fonts/Roboto/RobotoCondensed-Bold.ttf
+        - asset: assets/fonts/Roboto/RobotoCondensed-BoldItalic.ttf
+        - asset: assets/fonts/Roboto/RobotoCondensed-Italic.ttf
+        - asset: assets/fonts/Roboto/RobotoCondensed-Light.ttf
+        - asset: assets/fonts/Roboto/RobotoCondensed-LightItalic.ttf
+        - asset: assets/fonts/Roboto/RobotoCondensed-Regular.ttf
+        - asset: assets/fonts/Roboto/Roboto-Italic.ttf
+        - asset: assets/fonts/Roboto/Roboto-Light.ttf
+        - asset: assets/fonts/Roboto/Roboto-LightItalic.ttf
+        - asset: assets/fonts/Roboto/Roboto-Medium.ttf
+        - asset: assets/fonts/Roboto/Roboto-MediumItalic.ttf
+        - asset: assets/fonts/Roboto/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto/Roboto-Thin.ttf
+        - asset: assets/fonts/Roboto/Roboto-ThinItalic.ttf
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins/Poppins-Regular.ttf

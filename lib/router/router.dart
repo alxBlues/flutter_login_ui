@@ -9,6 +9,9 @@ class Routes {
   static final FluroRouter router = FluroRouter();
   static String root = '/'; //root path
   static String loginRoute = '/auth/login';
+  static String registerRoute = '/auth/register';
+  static String passwordRequestRoute = '/auth/reset_password';
+
   static String dashboardRoute = '/dashboard';
   static String blankRoute = '/dashboard/blankview';
 
@@ -19,6 +22,11 @@ class Routes {
         handler: AdminHandlers.login, transitionType: TransitionType.none);
     router.define(loginRoute,
         handler: AdminHandlers.login, transitionType: TransitionType.none);
+    router.define(registerRoute,
+        handler: AdminHandlers.register, transitionType: TransitionType.none);
+    router.define(passwordRequestRoute,
+        handler: AdminHandlers.resetPassowrd,
+        transitionType: TransitionType.none);
 
     // Dashboard
     router.define(dashboardRoute,
